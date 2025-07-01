@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Calculator with prompt/alert</h1>
+    
+
+    <script>
+        let  a = parseFloat(prompt("enter you first number"))
+        let  b = prompt("enter you value in simbol in '+,.,-,*,/' is enter")
+        let  c = parseFloat(prompt("enter you second number"))
+
+        let result;
+
+
+        if( b ===  "+" ){
+            console.log("enter you  +")
+            result = a + c
+        }
+        else if (b === "."){
+            console.log("enter you .")
+            result = a . c
+        }
+        else if (b === "-"){
+            console.log("enter you -")
+            result = a - c
+        }
+        else if (b === "*"){
+            console.log("enter you *")
+            result = a * c
+        }else if (b === "/"){
+            if(c !== 0){
+                result = a/c
+            }
+            else{
+                result = "Cannot divide by zero!";
+            }
+        }
+        else{
+            result = "Invalid operator!";
+        }
+
+        alert(`result = ${result}`)
+        console.log(result)
+    </script>
+</body>
+</html>
