@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Array Iteration (forEach, map, filter, reduce)</h1>
+
+
+    <script>
+
+        // forEach used cod 
+
+            let Arrays = ["uday" ,"joy", "dev"]
+
+            let newArray ;
+
+            newArray = Arrays
+            console.log("forEach cod")
+
+            newArray.forEach((element ,index )=> {
+                console.log(index , element)
+            });
+
+            newArray.push("new")
+
+            console.log(newArray)
+
+        // map used cod 
+
+            let Array2 = [10,20,30,50]
+
+            let newArray2 = Array2.map(functionArray)
+
+            function functionArray(num){
+                return num * 10
+            }
+            console.log("map cod")
+            console.log(newArray2)
+
+        // filter used cod 
+            let newArray3 = Array2.filter(checkAdult)
+
+            function checkAdult(num){
+                return num > 25
+            }
+            console.log("filter cod")
+
+            console.log(newArray3)
+
+
+        // reduce used cod 
+
+        let newArray4 = Array2.reduce(reduceAdult)
+
+             function reduceAdult(total,num){
+                return total + num
+            }
+            console.log(newArray4)
+
+    </script>
+</body>
+</html>
