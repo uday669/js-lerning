@@ -6,6 +6,40 @@
     <title>Document</title>
 </head>
 <body>
+
+    <h1>ES6 Arrow Functions</h1>
+
+
+    <script>
+        const greet =(name) =>{
+            return "hello " + name
+        }
+        
+        console.log(greet("uday"))
+
+
+        const number = (a ,b) => a + b 
+        console.log(number(20,20))
+
+
+        const name = () => "hello"
+        console.log(name())
+
+        const isEven = (num) => num % 2 === 0;
+        console.log(isEven())
+
+
+        const multiply = (a, b) => {
+        const result = a * b;
+        return result;
+        };
+        
+        console.log(multiply(20,3))
+
+
+        const getUser = () => ({ name: "Uday", age: 23 });
+        console.log(getUser())
+    </script>
     
 </body>
 </html>
