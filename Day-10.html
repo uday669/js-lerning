@@ -7,5 +7,41 @@
 </head>
 <body>
     <h1>Objects (create, access, nested)</h1>
+
+    <script>
+        const userdetails = {
+            name : "uday",
+            id : 1,
+            degrees : "B.TECH",
+            number: 1122334455 ,
+            address : {
+                city: "Mumbai",
+                zip: 400001
+            },
+             isStudent: false 
+        }
+
+        // Bonus: Add / Update / Delete Properties/  
+            userdetails.gender  = "Male";
+            userdetails.name  = "mohit";
+             console.log(userdetails);
+
+        // delete address in create Object 
+            delete  userdetails.address;
+
+        // Dynamic Key Access
+            const  Key = "isStudent" ;
+
+            console.log(userdetails.name);
+            console.log(userdetails[Key]);
+            console.log(userdetails);
+        
+        // Object create
+            let newdetails = Object.create(userdetails);
+            newdetails.name = "mohit"
+
+
+         console.log(newdetails);
+    </script>
 </body>
 </html>
