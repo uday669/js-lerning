@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+
+        <h1>Return & Scope</h1>
+
+        <script>
+
+        let name = "uday"
+
+            //  Global Scope 
+            function userdetail() {
+                return ("hello " + name)
+            }
+
+            console.log(userdetail())
+            console.log(name)
+
+            // Local Scope 
+            function detail() {
+                let age = 23;
+                console.log(age)
+            }
+            detail()
+
+
+            // Both Together 
+            let globalVar = "I am global";
+
+            function example() {
+            let localVar = "I am local";
+            console.log(globalVar); 
+            console.log(localVar);  
+            }
+
+            example();
+
+            console.log(globalVar); 
+        </script>
+
+    </body>
+</html>
