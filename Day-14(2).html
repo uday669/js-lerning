@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mini Quiz App</title>
+</head>
+<body>
+
+  <h1>Mini Quiz App</h1>
+
+  <script>
+    const quizData = [
+      {
+        question: "What does JS stand for?",
+        options: ["Java Setup", "Just Style", "JavaScript", "Jumbo Script"],
+        correct: "JavaScript"
+      },
+      {
+        question: "Which keyword declares a constant variable?",
+        options: ["var", "let", "const", "constant"],
+        correct: "const"
+      },
+      {
+        question: "What is the output of 2 + '2' in JS?",
+        options: ["4", "NaN", "22", "undefined"],
+        correct: "22"
+      }
+    ];
+
+    let scors = 0;
+
+    function alldata() {
+      quizData.forEach((element, index) => {
+        let newdata = element.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n');
+        let userInput = prompt(`${index + 1}. ${element.question}\n${newdata}`);
+        
+        let selectedIndex = parseInt(userInput) - 1;
+
+        if (element.options[selectedIndex] === element.correct) {
+          console.log("✅ Correct!");
+          scors++;
+        } else {
+          console.log("❌ Wrong! Correct answer is:", element.correct);
+        }
+
+        console.log("Current Score:", scors);
+      });
+      if(scors <= 1){
+        alert(`🎉 Quiz Complete! Your Score: ${scors}/${quizData.length} and falie`);
+        console.log("falie")
+      } else{
+            alert(`🎉 Quiz Complete! Your Score: ${scors}/${quizData.length} and pass`);
+        console.log("pass")
+      }
+      }
+
+    alldata();
+  </script>
+
+</body>
+</html>
