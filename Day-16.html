@@ -55,32 +55,27 @@
 
 
 <script>
-   let btnone = document.querySelector("#addCardBtn");
-let btntwo = document.querySelector("#addCardBtntwo");
+  const btnone = document.querySelector("#addCardBtn");      // "color chges" → REMOVE one by one
+  const btntwo = document.querySelector("#addCardBtntwo");   // "chnges text and desing" → ADD one by one
+  const cardBodies = document.querySelectorAll(".card-body");
 
-let card = document.querySelectorAll(".card-body");
+  let counter = 0;
 
-let counter = 0; // to keep track of how many cards to change
-
-btnone.addEventListener("click", function () {
-  // Remove class from all
-  card.forEach((element) => {
-    element.classList.remove("newcard");
+  // ADD one-by-one
+  btntwo.addEventListener("click", function () {
+    if (counter < cardBodies.length) {
+      cardBodies[counter].classList.add("newcard");
+      counter++;
+    }
   });
 
-  // Reset counter to 0
-  counter = 0;
-});
-
-btntwo.addEventListener("click", function () {
-  // Add class only up to `counter + 1` cards
-  if (counter < card.length) {
-    card[counter].classList.add("newcard");
-    counter++;
-  }
-});
-
+  // REMOVE one-by-one (in reverse)
+  btnone.addEventListener("click", function () {
+    if (counter > 0) {
+      counter--; // go back to previous index
+      cardBodies[counter].classList.remove("newcard");
+    }
+  });
 </script>
-
 </body>
 </html>
