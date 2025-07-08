@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bootstrap 5 Cards with Add Button</title>
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .newcard{
+        padding: 15px;
+        border-radius: 10px;
+        background: #2500ffc2;
+        color: white;
+        text-align: center;
+    }
+
+  </style>
+</head>
+<body>
+
+<div class="container my-5">
+
+
+  <div class="d-flex justify-content-center mb-4 gap-3">
+    <button class="btn btn-primary" id="addCardBtn">color chges</button>
+    <button class="btn btn-primary" id="addCardBtntwo">chnges text and desing</button>
+  </div>
+
+  <div class="row" id="cardContainer">
+    <!-- Initial Card 1 -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body ">
+          <h5 class="card-title">Hi Uday</h5>
+          <p class="card-text">This is card 1.</p>
+        </div>
+      </div>
+    </div>
+    <!-- Initial Card 2 -->
+    <div class="col-md-4 mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <h5 class="card-title">Welcome Back</h5>
+          <p class="card-text">This is card 2.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS (Optional for dropdowns etc.) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
+  const btnone = document.querySelector("#addCardBtn");      // "color chges" → REMOVE one by one
+  const btntwo = document.querySelector("#addCardBtntwo");   // "chnges text and desing" → ADD one by one
+  const cardBodies = document.querySelectorAll(".card-body");
+
+  let counter = 0;
+
+  // ADD one-by-one
+  btntwo.addEventListener("click", function () {
+    if (counter < cardBodies.length) {
+      cardBodies[counter].classList.add("newcard");
+      counter++;
+    }
+  });
+
+  // REMOVE one-by-one (in reverse)
+  btnone.addEventListener("click", function () {
+    if (counter > 0) {
+      counter--; // go back to previous index
+      cardBodies[counter].classList.remove("newcard");
+    }
+  });
+</script>
+</body>
+</html>

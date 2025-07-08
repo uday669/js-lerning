@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Events (onclick, addEventListener)</h1>
+
+    <h1>hello <span id="names">body</span></h1>
+    <button id="btn">click btn</button>
+
+    <script>
+        let btn = document.querySelector("#btn")
+        let names = document.querySelector("#names")
+
+        btn.addEventListener("click" , () =>{
+            names.innerHTML = "uday";
+            names.style.color = "red"
+            btn.innerHTML = "not click 2 time"
+        })
+    </script>
+</body>
+</html>
