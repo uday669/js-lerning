@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Counter Example</title>
+
+  <!-- Bootstrap 5 CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #f8f9fa;
+      flex-direction: column;
+    }
+    .counter {
+      background-color: #fff;
+      padding: 2rem 3rem;
+      border-radius: 1rem;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    }
+    .counter-value {
+      font-size: 2.5rem;
+      min-width: 50px;
+      text-align: center;
+    }
+    #countfive {
+      background-color: #0d6efd;
+      color: white;
+      border: none;
+      padding: 0.6rem 1.5rem;
+      font-size: 1rem;
+      border-radius: 0.5rem;
+      transition: background-color 0.2s;
+    }
+    #countfive:hover {
+      background-color: #0b5ed7;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="counter">
+    <div class="d-flex align-items-center justify-content-center gap-4">
+      <button class="btn btn-success btn-lg" id="btn1">+</button>
+      <p class="counter-value mb-0" id="counter"></p>
+      <button class="btn btn-danger btn-lg" id="btn2">-</button>
+    </div>
+  </div>
+
+  <button id="countfive" class="mt-4">5x</button>
+
+  <script>
+    let btn = document.querySelector("#btn1")
+    let btn2 = document.querySelector("#btn2")
+    let counter = document.querySelector("#counter")
+    let countfive = document.querySelector("#countfive")
+
+
+    let totalcount = 0
+    counter.innerHTML = totalcount
+
+    btn.addEventListener("click", () =>{
+        if(btn.textContent.includes('5x') && btn2.textContent.includes('5x')){
+            totalcount += 5
+             console.log(totalcount)
+        counter.innerHTML = totalcount
+
+        }else{
+        totalcount++
+        console.log(totalcount)
+        counter.innerHTML = totalcount
+        }
+    })
+    
+    btn2.addEventListener("click", ()=>{
+        if(totalcount > 0 ) {
+            if(btn.textContent.includes('5x') && btn2.textContent.includes('5x')){
+            totalcount -= 5
+             console.log(totalcount)
+        counter.innerHTML = totalcount
+
+        }else{
+        totalcount--
+        counter.innerHTML = totalcount
+        }
+        }
+    })
+
+    countfive.addEventListener("click" , () =>{
+        if(btn.innerHTML == "+" && btn2.innerHTML == "-"){
+            btn.innerHTML = "5x ++"
+            btn2.innerHTML = "5x --"
+        }
+        else{
+             btn.innerHTML = "+"
+            btn2.innerHTML = "-"
+        }
+    })
+  </script>
+
+</body>
+</html>
