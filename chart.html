@@ -1,0 +1,209 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Compensation Stacked Bar Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            margin: 20px;
+        }
+        canvas {
+            max-width: 100%;
+            height: 500px;
+        }
+    </style>
+</head>
+<body>
+<canvas id="compensationChart" class="chartbare"></canvas>
+<script>
+    const ctxq = document.getElementById('compensationChart').getContext('2d');
+    const isMobile = window.innerWidth <= 480;
+
+    const data1 = {
+        labels: [
+            'Technical\nLead',
+            'Engineering\nManager',
+            'Senior\nEngineering\nManager',
+            'Director of\nEngineering',
+            'VP of\nEngineering\n(Extensive)'
+        ],
+        datasets: [
+            {
+                label: 'Base Salary',
+                data: [3200000, 4500000, 6000000, 7500000, 9500000],
+                backgroundColor: '#90d26d',
+                barThickness: isMobile ? 20 : 30
+            },
+            {
+                label: 'Equity',
+                data: [500000, 800000, 1000000, 1500000, 2500000],
+                backgroundColor: '#ffa726',
+                barThickness: isMobile ? 20 : 30
+            },
+            {
+                label: 'Annual Bonus',
+                data: [400000, 700000, 900000, 1300000, 2000000],
+                backgroundColor: '#ef476f',
+                barThickness: isMobile ? 20 : 30
+            }
+        ]
+    };
+
+    const config1 = {
+        type: 'bar',
+        data: data1,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            scales: {
+                x: {
+                    stacked: true,
+                    ticks: {
+                        font: function () {
+                            return {
+                                size: isMobile ? 9 : 12,
+                                weight: 'bold'
+                            };
+                        },
+                        padding: 10
+                    },
+                    grid: { display: false }
+                },
+                y: {
+                    stacked: true,
+                    ticks: {
+                        callback: function (value) {
+                            return '₹ ' + value.toLocaleString();
+                        },
+                        font: function () {
+                            return {
+                                size: isMobile ? 8 : 12
+                            };
+                        }
+                    },
+                    grid: { color: '#e0e0e0' }
+                }
+            }
+        }
+    };
+
+    new Chart(ctxq, config1);
+</script>
+
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Wrapped Y Labels Chart</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    #chartContainer {
+      width: 100%;
+      max-width: 800px;
+      height: 500px;
+      margin: auto;
+    }
+
+    @media print {
+      canvas {
+        max-width: 100% !important;
+        width: 100% !important;
+        height: auto !important;
+      }
+      .chartjs-size-monitor {
+        display: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="chartContainer">
+    <canvas id="growthChallengesChart"></canvas>
+  </div>
+
+  <script>
+    const chartCanvas = document.getElementById("growthChallengesChart");
+    const isMobile = window.innerWidth <= 480;
+
+    if (isMobile) chartCanvas.height = 550;
+
+    const ctx = chartCanvas.getContext("2d");
+
+    const data = {
+      labels: [
+        "Team Size\nand Leadership",
+        "Technical\nDecision-Making",
+        "Career Networking\nOpportunities",
+        "Balancing Technical\nand Management",
+        "Increasing Organizational\nPolitics",
+        "Strategic Business\nKnowledge"
+      ],
+      datasets: [
+        {
+          data: [85, 90, 80, null, null, null],
+          backgroundColor: "rgba(139, 195, 74, 0.8)",
+          barThickness: 30
+        },
+        {
+          data: [null, null, null, 75, 70, 80],
+          backgroundColor: "rgba(244, 67, 54, 0.8)",
+          barThickness: 30
+        }
+      ]
+    };
+
+    const config = {
+      type: "bar",
+      data: data,
+      options: {
+        indexAxis: "y",
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            position: "top",
+            beginAtZero: true,
+            max: 100,
+            ticks: {
+              callback: (value) => value + "%"
+            }
+          },
+          y: {
+            ticks: {
+             
+              font: () => ({
+                size: isMobile ? 8 : 10,
+                weight: "bold"
+              })
+            },
+            grid: { display: false }
+          }
+        },
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: function (context) {
+                return context.parsed.x + "%";
+              }
+            }
+          }
+        }
+      }
+    };
+
+    new Chart(ctx, config);
+  </script>
+</body>
+</html>

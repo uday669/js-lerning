@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="email"></h1>
+
+    <button id="btn">click to ceratin email        
+    </button>
+    <script>
+        let a = "https://randomuser.me/api/"
+        let maile = document.querySelector("#email")
+        let btn = document.querySelector("#btn")
+
+        const get = async () =>{
+            console.log("hi working api")
+       let response = await fetch(a)
+       console.log(response)
+
+       let data = await response.json()
+       console.log(data.results[0].email)
+
+        maile.textContent = data.results[0].email
+        }
+btn.addEventListener("click" , () =>{
+    get()
+})
+    </script>
+</body>
+</html>
